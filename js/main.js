@@ -766,6 +766,7 @@ var owlCarousel = {
         if (index_slider.length != 0) {
             index_slider.owlCarousel({
                 nav: false,
+                lazyLoad: true,
                 loop: true,
                 responsiveClass: true,
                 responsive: {
@@ -798,6 +799,7 @@ var owlCarousel = {
         if (partners_page_slider.length > 0) {
             partners_page_slider.owlCarousel({
                 nav: false,
+                lazyLoad: true,
                 loop: true,
                 responsiveClass: true,
                 items: 3,
@@ -833,6 +835,7 @@ var owlCarousel = {
         if (sliderClients.length != 0) {
             sliderClients.owlCarousel({
                 nav: true,
+                lazyLoad: true,
                 loop: true,
                 responsiveClass: true,
                 items: 3,
@@ -866,6 +869,7 @@ var owlCarousel = {
         if (reviews_slider.length != 0) {
             sliderClients.owlCarousel({
                 nav: false,
+                lazyLoad: true,
                 loop: true,
                 // items : 1,
                 responsiveClass: true,

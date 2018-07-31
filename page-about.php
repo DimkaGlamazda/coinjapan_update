@@ -86,16 +86,6 @@
                     </div>
                 </div>
             <?php endwhile; ?>
-
-
-
-
-
-
-
-
-
-
         </div>
         <i class="fas fa-angle-double-up"></i>
     </div>

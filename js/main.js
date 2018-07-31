@@ -761,38 +761,38 @@ var owlCarousel = {
 
     init: function () {
 
-        var index_slider = jQuery('.index-partners-slider');
-
-        if (index_slider.length != 0) {
-            index_slider.owlCarousel({
-                nav: false,
-                lazyLoad: true,
-                loop: true,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1,
-                        nav: false,
-                    },
-                    720: {
-                        items: 2,
-                        nav: false,
-                    },
-                    1000: {
-                        items: 3,
-                        nav: false,
-                    }
-                }
-            });
-
-            jQuery('.partners-next').on('click', function () {
-                index_slider.trigger('next.owl.carousel');
-            });
-
-            jQuery('.partners-prev').on('click', function () {
-                index_slider.trigger('prev.owl.carousel');
-            });
-        }
+        // var index_slider = jQuery('.index-partners-slider');
+        //
+        // if (index_slider.length != 0) {
+        //     index_slider.owlCarousel({
+        //         nav: false,
+        //         lazyLoad: true,
+        //         loop: true,
+        //         responsiveClass: true,
+        //         responsive: {
+        //             0: {
+        //                 items: 1,
+        //                 nav: false,
+        //             },
+        //             720: {
+        //                 items: 2,
+        //                 nav: false,
+        //             },
+        //             1000: {
+        //                 items: 3,
+        //                 nav: false,
+        //             }
+        //         }
+        //     });
+        //
+        //     jQuery('.partners-next').on('click', function () {
+        //         index_slider.trigger('next.owl.carousel');
+        //     });
+        //
+        //     jQuery('.partners-prev').on('click', function () {
+        //         index_slider.trigger('prev.owl.carousel');
+        //     });
+        // }
 
         var partners_page_slider = jQuery('.partners-list-wrapper');
 

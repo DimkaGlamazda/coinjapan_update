@@ -3543,16 +3543,10 @@ button.cj-btn:focus {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 5px;
 }
 .consortium-img-wrapper img {
-    width: 65%;
-}
-
-
-@media (max-width: 576px) {
-    .consortium-img-wrapper img {
-        width: 48%;
-    }
+    width: 200px;
 }
 
 .consortium-wrapper {
@@ -3587,3 +3581,28 @@ button.cj-btn:focus {
     text-align: center;
     padding-bottom: 10px;
 }
+
+.home-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-img-wrapper img {
+    width: 65%;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+
+.home-img-wrapper:hover img {
+    -webkit-filter: grayscale(0);
+    -moz-filter: grayscale(0);
+    -ms-filter: grayscale(0);
+    -o-filter: grayscale(0);
+    filter: grayscale(0);
+}
+

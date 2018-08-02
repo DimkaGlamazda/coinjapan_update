@@ -140,12 +140,12 @@ jQuery(function () {
      * */
 
 
-    var geocoder;
-    var map;
-    var query = new Array('г. Минск, улица Гамарника, 30', 'бульвар Вацлава Гавела, 4, Київ');
-    var idArr = new Array('mp1', 'mp0');
+     var geocoder;
+     var map;
+     var query = new Array('г. Минск, улица Гамарника, 30', 'бульвар Вацлава Гавела, 4, Київ');
+     var idArr = new Array('mp1', 'mp0');
 
-    function initialize() {
+     function initialize() {
         geocoder = new google.maps.Geocoder();
         var mapOptions = {
             center: {'lat': 50.448087, 'lng': 30.425054},
@@ -154,206 +154,206 @@ jQuery(function () {
                 "featureType": "all",
                 "elementType": "labels.text.fill",
                 "stylers": [
-                    {
-                        "saturation": 36
-                    },
-                    {
-                        "color": "#333333"
-                    },
-                    {
-                        "lightness": 40
-                    }
+                {
+                    "saturation": 36
+                },
+                {
+                    "color": "#333333"
+                },
+                {
+                    "lightness": 40
+                }
                 ]
             },
+            {
+                "featureType": "all",
+                "elementType": "labels.text.stroke",
+                "stylers": [
                 {
-                    "featureType": "all",
-                    "elementType": "labels.text.stroke",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        },
-                        {
-                            "color": "#ffffff"
-                        },
-                        {
-                            "lightness": 16
-                        }
-                    ]
+                    "visibility": "on"
                 },
                 {
-                    "featureType": "all",
-                    "elementType": "labels.icon",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
+                    "color": "#ffffff"
                 },
                 {
-                    "featureType": "administrative",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "color": "#fefefe"
-                        },
-                        {
-                            "lightness": 20
-                        }
-                    ]
+                    "lightness": 16
+                }
+                ]
+            },
+            {
+                "featureType": "all",
+                "elementType": "labels.icon",
+                "stylers": [
+                {
+                    "visibility": "off"
+                }
+                ]
+            },
+            {
+                "featureType": "administrative",
+                "elementType": "geometry.fill",
+                "stylers": [
+                {
+                    "color": "#fefefe"
                 },
                 {
-                    "featureType": "administrative",
-                    "elementType": "geometry.stroke",
-                    "stylers": [
-                        {
-                            "color": "#fefefe"
-                        },
-                        {
-                            "lightness": 17
-                        },
-                        {
-                            "weight": 1.2
-                        }
-                    ]
+                    "lightness": 20
+                }
+                ]
+            },
+            {
+                "featureType": "administrative",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                {
+                    "color": "#fefefe"
                 },
                 {
-                    "featureType": "administrative.locality",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#e30808"
-                        }
-                    ]
+                    "lightness": 17
                 },
                 {
-                    "featureType": "administrative.neighborhood",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#e30808"
-                        }
-                    ]
+                    "weight": 1.2
+                }
+                ]
+            },
+            {
+                "featureType": "administrative.locality",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                {
+                    "color": "#e30808"
+                }
+                ]
+            },
+            {
+                "featureType": "administrative.neighborhood",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                {
+                    "color": "#e30808"
+                }
+                ]
+            },
+            {
+                "featureType": "landscape",
+                "elementType": "geometry",
+                "stylers": [
+                {
+                    "color": "#f5f5f5"
                 },
                 {
-                    "featureType": "landscape",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#f5f5f5"
-                        },
-                        {
-                            "lightness": 20
-                        }
-                    ]
+                    "lightness": 20
+                }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [
+                {
+                    "color": "#f5f5f5"
                 },
                 {
-                    "featureType": "poi",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#f5f5f5"
-                        },
-                        {
-                            "lightness": 21
-                        }
-                    ]
+                    "lightness": 21
+                }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [
+                {
+                    "color": "#dedede"
                 },
                 {
-                    "featureType": "poi.park",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#dedede"
-                        },
-                        {
-                            "lightness": 21
-                        }
-                    ]
+                    "lightness": 21
+                }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "labels.text",
+                "stylers": [
+                {
+                    "visibility": "off"
+                }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry.fill",
+                "stylers": [
+                {
+                    "lightness": 17
                 },
                 {
-                    "featureType": "poi.park",
-                    "elementType": "labels.text",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
+                    "color": "#ffffff"
+                }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                {
+                    "lightness": 29
                 },
                 {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "lightness": 17
-                        },
-                        {
-                            "color": "#ffffff"
-                        }
-                    ]
+                    "weight": 0.2
                 },
                 {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.stroke",
-                    "stylers": [
-                        {
-                            "lightness": 29
-                        },
-                        {
-                            "weight": 0.2
-                        },
-                        {
-                            "color": "#ffffff"
-                        }
-                    ]
+                    "color": "#ffffff"
+                }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "geometry",
+                "stylers": [
+                {
+                    "color": "#ffffff"
                 },
                 {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#ffffff"
-                        },
-                        {
-                            "lightness": 18
-                        }
-                    ]
+                    "lightness": 18
+                }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "geometry",
+                "stylers": [
+                {
+                    "color": "#ffffff"
                 },
                 {
-                    "featureType": "road.local",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#ffffff"
-                        },
-                        {
-                            "lightness": 16
-                        }
-                    ]
+                    "lightness": 16
+                }
+                ]
+            },
+            {
+                "featureType": "transit",
+                "elementType": "geometry",
+                "stylers": [
+                {
+                    "color": "#f2f2f2"
                 },
                 {
-                    "featureType": "transit",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#f2f2f2"
-                        },
-                        {
-                            "lightness": 19
-                        }
-                    ]
+                    "lightness": 19
+                }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [
+                {
+                    "color": "#e9e9e9"
                 },
                 {
-                    "featureType": "water",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#e9e9e9"
-                        },
-                        {
-                            "lightness": 17
-                        }
-                    ]
-                }]
+                    "lightness": 17
+                }
+                ]
+            }]
         }
 
         map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -364,25 +364,25 @@ jQuery(function () {
         for (var i = 0; i < query.length; i++) {
             var address = query[i];
             geocoder.geocode({
-                    'address': address
-                }, function (k) {
-                    return function (results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                            var a = document.getElementById(idArr[k]);
-                            a.onclick = function () {
-                                map.setZoom(10);
-                                map.setCenter(results[0].geometry.location);
-                            }
+                'address': address
+            }, function (k) {
+                return function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        var a = document.getElementById(idArr[k]);
+                        a.onclick = function () {
+                            map.setZoom(10);
                             map.setCenter(results[0].geometry.location);
-                            var marker = new google.maps.Marker({
-                                map: map,
-                                position: results[0].geometry.location
-                            });
-                        } else {
-                            alert('Geocode was not successful for the following reason: ' + status);
                         }
+                        map.setCenter(results[0].geometry.location);
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location
+                        });
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
                     }
-                }(i)
+                }
+            }(i)
             );
         }
     }
@@ -464,7 +464,7 @@ jQuery(function () {
  *
  * */
 
-var home_particles_bg = {
+ var home_particles_bg = {
 
     container: '.home-title',
 
@@ -573,14 +573,14 @@ var menu = {
         }
 
         jQuery(".menu-control").removeClass('active')
-            .removeClass('internal')
-            .addClass('external');
+        .removeClass('internal')
+        .addClass('external');
 
         jQuery('body').css('overflow', 'auto');
 
         jQuery('.header-controls')
-            .css('display', 'none')
-            .removeAttr('style');
+        .css('display', 'none')
+        .removeAttr('style');
 
         var langBlock = jQuery(menu.langMenuList);
 
@@ -619,9 +619,9 @@ var menu = {
                 jQuery('body').css('overflow', 'auto');
 
                 jQuery(this)
-                    .removeClass('active')
-                    .removeClass('internal')
-                    .addClass('external');
+                .removeClass('active')
+                .removeClass('internal')
+                .addClass('external');
 
                 jQuery('.header-controls').animate({opacity: 0}, 400, function () {
                     jQuery(this).css('display', 'none');
@@ -633,13 +633,13 @@ var menu = {
             jQuery('body').css('overflow', 'hidden');
 
             jQuery(this)
-                .addClass('active')
-                .removeClass('external')
-                .addClass('internal');
+            .addClass('active')
+            .removeClass('external')
+            .addClass('internal');
 
             jQuery('.header-controls')
-                .css('display', 'flex')
-                .animate({opacity: 1}, 400);
+            .css('display', 'flex')
+            .animate({opacity: 1}, 400);
 
 
         });
@@ -761,38 +761,22 @@ var owlCarousel = {
 
     init: function () {
 
-        // var index_slider = jQuery('.index-partners-slider');
-        //
-        // if (index_slider.length != 0) {
-        //     index_slider.owlCarousel({
-        //         nav: false,
-        //         lazyLoad: true,
-        //         loop: true,
-        //         responsiveClass: true,
-        //         responsive: {
-        //             0: {
-        //                 items: 1,
-        //                 nav: false,
-        //             },
-        //             720: {
-        //                 items: 2,
-        //                 nav: false,
-        //             },
-        //             1000: {
-        //                 items: 3,
-        //                 nav: false,
-        //             }
-        //         }
-        //     });
-        //
-        //     jQuery('.partners-next').on('click', function () {
-        //         index_slider.trigger('next.owl.carousel');
-        //     });
-        //
-        //     jQuery('.partners-prev').on('click', function () {
-        //         index_slider.trigger('prev.owl.carousel');
-        //     });
-        // }
+
+        var consortium_carousel = jQuery('.consortium-carousel');
+
+        if(consortium_carousel.length != 0)
+        {
+            consortium_carousel.owlCarousel({
+                nav: false,
+                lazyLoad: true,
+                loop: true,
+                responsiveClass: true,
+                items : 1,
+                autoplay : true,
+                lazyLoad: true,
+                loop: true,
+            });
+        }
 
         var partners_page_slider = jQuery('.partners-list-wrapper');
 
@@ -887,9 +871,9 @@ var Particles = {
     ready: false,
     points: [],
     colors: [
-        'rgba(161,147,202,1)',
-        'rgba(59,72,164,1)',
-        'rgba(59,158,164,1)'
+    'rgba(161,147,202,1)',
+    'rgba(59,72,164,1)',
+    'rgba(59,158,164,1)'
     ],
 
     init: function (n, f) {
@@ -900,17 +884,17 @@ var Particles = {
 
 
         this.x = 0,
-            this.y = 100,
-            this.range = 40,
-            this.speed = 100,
-            this.maxSize = 1.3,
-            this.minSize = 0.3,
-            this.maxSpeed = 0.6,
-            this.minSpeed = 0.2,
-            this.offset = 100,
-            this.node = 70,
-            this.node404 = 50,
-            this.ratio = 1;
+        this.y = 100,
+        this.range = 40,
+        this.speed = 100,
+        this.maxSize = 1.3,
+        this.minSize = 0.3,
+        this.maxSpeed = 0.6,
+        this.minSpeed = 0.2,
+        this.offset = 100,
+        this.node = 70,
+        this.node404 = 50,
+        this.ratio = 1;
         this.canvas = jQuery('#js-background-renderer')[0];
         this.ctx = this.canvas.getContext('2d');
         this.ratio = window.devicePixelRatio;
@@ -966,15 +950,15 @@ var Particles = {
     fixRatio: function () {
 
         this.y = this.ratio * this.y,
-            this.range = this.ratio * this.range,
-            this.speed = this.ratio * this.speed,
-            this.maxSize = this.ratio * this.maxSize,
-            this.minSize = this.ratio * this.minSize,
-            this.maxSpeed = this.ratio * this.maxSpeed,
-            this.minSpeed = this.ratio * this.minSpeed,
-            this.offset = this.ratio * this.offset,
-            this.node = this.ratio * this.node,
-            this.node404 = this.ratio * this.node404;
+        this.range = this.ratio * this.range,
+        this.speed = this.ratio * this.speed,
+        this.maxSize = this.ratio * this.maxSize,
+        this.minSize = this.ratio * this.minSize,
+        this.maxSpeed = this.ratio * this.maxSpeed,
+        this.minSpeed = this.ratio * this.minSpeed,
+        this.offset = this.ratio * this.offset,
+        this.node = this.ratio * this.node,
+        this.node404 = this.ratio * this.node404;
 
     },
 

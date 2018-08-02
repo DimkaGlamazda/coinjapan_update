@@ -487,7 +487,7 @@ function coinjapan_company_types($post)
   $postMeta = [
     'client' => 'Clients',
     'partner' => 'Partners',
-    'consorcium' => 'Consorcium'
+    'consortium' => 'Consortium'
   ];
 
   foreach ($postMeta as $slug => $title) {
@@ -521,7 +521,7 @@ function coinjapan_company_reference($post)
   if (!empty($cj_stored_meta['reference']))
     $reference = esc_attr($cj_stored_meta['reference'][0]);
 
-  echo '<label for="reference">Reference:</label><br>';
+  echo '<label for="reference">Url:</label><br>';
   echo '<input type="text" id="reference" name="reference" value="' . $reference . '" size="25" />';
 }
 

@@ -2636,32 +2636,13 @@ button.cj-btn:focus {
     padding: 60px 5% 0;
 }
 
-.owl-dots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 20px;
-}
+
 
 .partner-link {
     color: rgba(176, 0, 11, 1);
 }
 
-.owl-dot {
-    background-color: #999 !important;
-    width: 10px;
-    height: 10px;
-    margin: 10px;
-    border-radius: 25px;
-}
 
-.owl-dot.active {
-    background-color: #000 !important;
-}
-
-.owl-dot:focus {
-    outline: none;
-}
 
 .partner-item-wrapper {
     display: flex;
@@ -3535,18 +3516,20 @@ button.cj-btn:focus {
 }
 
 .consortium-item {
-    height: 250px;
+    height: 200px;
 }
 
 .consortium-img-wrapper {
     width: 100%;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
 }
+
 .consortium-img-wrapper img {
-    width: 200px;
+    width: 60% !important;
 }
 
 .consortium-wrapper {
@@ -3567,14 +3550,14 @@ button.cj-btn:focus {
     text-align: center;
     font-size: 20px;
     font-weight: 700;
-    padding-top: 10px;
+    padding-top: 0px;
 }
 
 .consortium-member-description {
     text-align: center;
     font-size: 15px;
-    padding: 15px;
-    line-height: 22px;
+    padding: 0 15px;
+    line-height: 18px;
 }
 .consortium-member-reference {
     display: block;
@@ -3606,3 +3589,30 @@ button.cj-btn:focus {
     filter: grayscale(0);
 }
 
+.consortium-carousel {
+    width: 85%;
+    margin: auto;
+}
+
+.consortium-carousel .owl-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.consortium-carousel .owl-dot {
+    background-color: #999 !important;
+    width: 10px;
+    height: 10px;
+    margin: 10px;
+    border-radius: 25px;
+}
+
+.consortium-carousel .owl-dot.active {
+    background-color: #000 !important;
+}
+
+.owl-dot:focus {
+    outline: none;
+}

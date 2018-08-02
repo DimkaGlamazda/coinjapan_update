@@ -1,4 +1,11 @@
 <?php
+$languages = pll_the_languages(['raw' => 1]);
+$current_lang = 'en';
+foreach ($languages as $key => $language){
+  if($language['current_lang']){
+    $current_lang = $key;
+  }
+}
 
 $args = [
     'post_type' => 'companies',
@@ -8,12 +15,23 @@ $args = [
     'meta_compare' => 'LIKE'
 ];
 
-$partners = new WP_Query($args);
+$query_partners = new WP_Query($args);
 
+$partners = [];
 
-get_header()
+while ($query_partners->have_posts())
+{
+  $query_partners->the_post();
+  $page = $current_lang == 'en' ? 'partners' : 'partners-ru';
 
+  $partner['partners_url'] = get_permalink(get_page_by_path($page));
+  $partner['title'] = get_the_title();
+  $partner['thumbnail'] = get_the_post_thumbnail_url();
+
+  $partners[] = $partner;
+}
 ?>
+<?php get_header() ?>
 
   <div class="cj-container">
     <div class="go-to-top" data-go-to-top="btn">
@@ -169,16 +187,15 @@ wp_reset_postdata();
       <h2 class="section-header" data-css-animate="trigger"><?php pll_e('Partners') ?></h2>
       <div class="home-partners-list" data-css-animate="trigger">
         <div class="row no-gutters">
-          <?php while ($partners->have_posts()) : $partners->the_post(); ?>
+          <?php foreach ($partners as $partner): ?>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
               <div class="home-partner-item">
-
-                <div class="home-img-wrapper">
-                  <img src="<?=get_the_post_thumbnail_url()?>" alt="<?php the_title() ?>">
-                </div>
+                <a href="<?=$partner['partners_url']?>" class="home-img-wrapper">
+                  <img src="<?=$partner['thumbnail']?>" alt="<?=$partner['title']?>">
+                </a>
               </div>
             </div>
-          <?php endwhile; ?>
+         <?php endforeach; ?>
         </div>
       </div>
   </section>

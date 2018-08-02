@@ -19,6 +19,9 @@ foreach ($languages as $key => $language){
       $current_lang = $key;
   }
 }
+
+$home_page = $current_lang == 'en' ? 'home' : 'home-ru';
+
 ?>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
@@ -59,7 +62,7 @@ foreach ($languages as $key => $language){
     <header class="header">
         <div class="header-container">
             <div class="logo">
-                <a href="home">
+                <a href="<?=get_permalink(get_page_by_path($home_page))?>">
                     <img src="<?=CJ_MEDIA_ROOT?>/logo/logotype.png" alt="Logo">
                 </a>
             </div>

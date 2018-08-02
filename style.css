@@ -3623,3 +3623,5 @@ button.cj-btn:focus {
 .owl-dot:focus {
     outline: none;
 }
+
+embed, iframe, img, object, video { max-width: 100%; }

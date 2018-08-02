@@ -764,7 +764,7 @@ var owlCarousel = {
 
         var consortium_carousel = jQuery('.consortium-carousel');
 
-        if(consortium_carousel.length != 0)
+        if(consortium_carousel.length !== 0)
         {
             consortium_carousel.owlCarousel({
                 nav: false,
@@ -815,7 +815,7 @@ var owlCarousel = {
 
         var sliderClients = jQuery('.owl-carousel.owl-carousel-2');
 
-        if (sliderClients.length != 0) {
+        if (sliderClients.length !== 0) {
             sliderClients.owlCarousel({
                 nav: true,
                 lazyLoad: true,
@@ -849,13 +849,12 @@ var owlCarousel = {
 
         var reviews_slider = jQuery('.owl-carousel.review-clients-slider')
 
-        if (reviews_slider.length != 0) {
+        if (reviews_slider.length !== 0) {
             sliderClients.owlCarousel({
                 nav: false,
                 lazyLoad: true,
                 loop: true,
-                // items : 1,
-                responsiveClass: true,
+                responsiveClass: true
             });
         }
     }

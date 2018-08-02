@@ -3494,8 +3494,8 @@ button.cj-btn:focus {
     right:0;
     bottom:0;
     z-index: 2;
-    border-top: 1px solid #fff;
-    border-right: 1px solid #fff;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
 }
 .consortium-grid {
     position: absolute;
@@ -3529,7 +3529,14 @@ button.cj-btn:focus {
 }
 
 .consortium-img-wrapper img {
-    width: 60% !important;
+    width: 50% !important;
+}
+
+@media (max-width: 768px) {
+    .consortium-img-wrapper img {
+        width: 40% !important;
+    }
+
 }
 
 .consortium-wrapper {

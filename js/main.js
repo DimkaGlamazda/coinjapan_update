@@ -773,8 +773,7 @@ var owlCarousel = {
                 responsiveClass: true,
                 items : 1,
                 autoplay : true,
-                lazyLoad: true,
-                loop: true,
+                autoplayHoverPause : true
             });
         }
 

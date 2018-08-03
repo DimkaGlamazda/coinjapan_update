@@ -3628,3 +3628,38 @@ embed, iframe, img, object, video {
  max-width: 100%; 
  height: auto;
 }
+
+.news-page-news-list .cj-container {
+    padding-top: 60px;
+    margin: auto;
+}
+
+.news-container {
+    width:90%;
+    margin: auto;
+}
+.latest-news-img-wrapper {
+
+}
+
+.latest-news-content {
+    padding: 10px 10px 10px 20px;
+}
+
+.latest-news-content h4 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    padding-bottom: 20px;
+}
+
+.latest-news-content p {
+    padding-bottom: 10px;
+}
+
+.news-item-footer-date {
+    font-weight: 700;
+    display: inline-block;
+    margin-right: 10px;
+}
+

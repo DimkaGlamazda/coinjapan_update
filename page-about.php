@@ -70,8 +70,6 @@
                 $custom_fields = get_post_custom(get_the_ID());
                 $position = $custom_fields['position'][0];
 
-
-
                 ?>
                 <div class="col-sm-12 col-md-6 col-lg-4">
                     <div class="team-member" data-css-animate="trigger" data-team-member="detail">

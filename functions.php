@@ -245,6 +245,51 @@ function news_post_type()
 
 add_action('init', 'news_post_type');
 
+
+
+function news_short_summary_metabox()
+{
+  add_meta_box('short_summary', 'Short Summary', 'news_short_summary', 'news_item', 'normal', 'high');
+}
+
+add_action('add_meta_boxes', 'news_short_summary_metabox');
+
+function news_short_summary($post)
+{
+  wp_nonce_field(basename(__FILE__), 'news_nonce');
+  $cj_stored_meta = get_post_meta($post->ID);
+
+  $summary = null;
+  if (!empty($cj_stored_meta['summary']))
+    $summary = esc_attr($cj_stored_meta['summary'][0]);
+
+  echo '<textarea type="text" id="summary" name="summary" style="width:100%; height: 100px">' . $summary . '</textarea>';
+
+}
+
+
+function news_short_summary_meta_store($post_id)
+{
+  $is_autosave = wp_is_post_autosave($post_id);
+  $is_revision = wp_is_post_revision($post_id);
+  $is_valid_nonce = (isset($_POST['news_nonce']) && wp_verify_nonce($_POST['news_nonce'], basename(__FILE__))) ? 'true' : 'false';
+
+  if ($is_autosave || $is_revision || !$is_valid_nonce) {
+    return;
+  }
+
+  $text = mb_strimwidth($_POST['summary'], 0, 500, "...");
+
+  if (isset($_POST['summary'])) {
+    update_post_meta($post_id, 'summary', sanitize_text_field($text));
+  }
+
+}
+
+add_action('save_post', 'news_short_summary_meta_store');
+
+
+
 function coinjapan_news_custom_taxonomies()
 {
   $labels = [
@@ -311,12 +356,12 @@ function save_taxonomy_custom_fields($term_id)
   }
 }
 
-// Add the fields to the "presenters" taxonomy, using our callback function  
+
 add_action('categories_edit_form_fields', 'news_category_taxonomy_custom_fields', 10, 2);
 
-// Save the changes made on the "presenters" taxonomy, using our callback function  
 add_action('edited_categories', 'save_taxonomy_custom_fields', 10, 2);
 
+///
 
 
 /*
@@ -375,8 +420,6 @@ function coinjapan_staff_metabox()
 {
   add_meta_box('member_position', 'Member Position', 'coinjapan_member_position', 'staff', 'side', 'high');
 }
-
-// add_action('add_meta_boxes', 'coinjapan_positions_metabox');
 
 add_action('add_meta_boxes', 'coinjapan_staff_metabox');
 

@@ -233,7 +233,7 @@ function news_post_type()
     , 'capability_type' => 'post'
     , 'menu_icon' => 'dashicons-format-aside'
     , 'supports' => [
-      'title', 'editor'
+      'title', 'editor', 'thumbnail'
     ]
     , 'menu_position' => 6
     , 'exclude_from_search' => true

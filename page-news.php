@@ -47,8 +47,8 @@ $terms = get_terms([
               <input type="submit" name="<?=$value->slug ?>" value="<?=$value->name ?>">
           </div>
       <?php endforeach; ?>
-    </form>
-    </div>
+  </form>
+</div>
 </section>
 
 <?php 
@@ -80,46 +80,75 @@ if($slug){
             'field'    => 'slug',
             'terms'    => $slug
         ]
-    ]
-);
+    ]);
 }
 
 $news = new WP_Query($args);
+
+$counter = 0;
+$latest_news = null;
+$side_news = [];
+
+
+while ( $news->have_posts() ) : $news->the_post();
+    $category = wp_get_object_terms( $post->ID, 'categories')[0];
+
+    $news_item['category'] = $category->name;
+    $news_item['category_color'] = get_option( "taxonomy_term_" . $category->term_id )['categories_id'];
+    $news_item['date'] = get_the_date('Y/n/j');
+
+endwhile;    
+
 
 ?>
 
 <section class="newa-page-news-list">
     <div class="cj-container">
-        <div class="row no-gutters news-list-wrapper">
-
-            <div class="news-list col-sm-12">
-                <?php while ( $news->have_posts() ) : $news->the_post(); ?>
-
-                    <?php
-                    $category = wp_get_object_terms( $post->ID, 'categories')[0];
-                    $label_color = get_option( "taxonomy_term_" . $category->term_id )['categories_id'];
-                    ?>
-
-                    <a href="<?=get_permalink()?>" class="row no-gutters news-list-item" data-css-animate="trigger">
-                        <span class="col-md-2 col-4 news-category-wrapper">
-                            <span class="news-category-label">
-                                <span style="background-color: #<?=$label_color?>;"><?=$category->name?></span>
-                            </span>
-                        </span>
-                        <span class="col-md-2 col-6 news-date-wrapper">
-                            <span class="news-date">
-                                <?php echo get_the_date('Y/n/j') ?>
-                            </span>
-                        </span>
-                        <span class="col-md-8 news-title-wrapper">
-                            <span class="news-title"><?php the_title() ?></span>
-                        </span>
-                    </a>
-                <?php endwhile; ?>
+        <div class="row no-gutters">
+            <div class="col-12 col-md-8 col-lg-8">
+                1
+            </div>
+            <div class="col-12 col-md-4 col-lg-4">
+                <div class="row no-gutters">
+                    <div class="col-12 col-sm-6 col-md-12 col-lg-12">
+                        1
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-12 col-lg-12">
+                        1
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+
+
+<div class="news-list col-sm-12">
+    <?php while ( $news->have_posts() ) : $news->the_post(); ?>
+
+        <?php
+        $category = wp_get_object_terms( $post->ID, 'categories')[0];
+        $label_color = get_option( "taxonomy_term_" . $category->term_id )['categories_id'];
+        ?>
+
+        <a href="<?=get_permalink()?>" class="row no-gutters news-list-item" data-css-animate="trigger">
+            <span class="col-md-2 col-4 news-category-wrapper">
+                <span class="news-category-label">
+                  <span style="background-color: #<?=$label_color?>;"><?=$category->name?></span>
+                </span>
+            </span>
+            <span class="col-md-2 col-6 news-date-wrapper">
+                <span class="news-date">
+                  <?php echo get_the_date('Y/n/j'); ?>
+                </span>
+            </span>
+            <span class="col-md-8 news-title-wrapper">
+                <span class="news-title"><?php the_title() ?></span>
+            </span>
+        </a>
+    <?php endwhile; ?>
+</div>
 
 <?php 
 wp_reset_postdata();

@@ -278,7 +278,7 @@ function news_short_summary_meta_store($post_id)
     return;
   }
 
-  $text = mb_strimwidth($_POST['summary'], 0, 500, "...");
+  $text = mb_strimwidth($_POST['summary'], 0, 1000, "...");
 
   if (isset($_POST['summary'])) {
     update_post_meta($post_id, 'summary', sanitize_text_field($text));

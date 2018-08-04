@@ -56,8 +56,8 @@ while ($consortium_query->have_posts())
 $slides = [];
 
 $from = 0;
-$to = 6;
-for($i = 0; $i < count($consortium) / 6; $i++)
+$to = 8;
+for($i = 0; $i < count($consortium) / 8; $i++)
 {
   for($j = $from; $j < $to; $j++)
   {
@@ -66,8 +66,8 @@ for($i = 0; $i < count($consortium) / 6; $i++)
       $slides[$i][] = $consortium[$j];
     }
   }
-  $from += 6;
-  $to += 6;
+  $from += 8;
+  $to += 8;
 }
 
 ?>
@@ -151,7 +151,7 @@ for($i = 0; $i < count($consortium) / 6; $i++)
           <div class="consortium-grid">
             <div class="row no-gutters">
               <?php foreach ($slide_items as $consortium): ?>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                   <div class="consortium-border">
                     <div class="consortium-item" style="visibility: hidden">
                       <div class="consortium-img-wrapper">
@@ -166,7 +166,7 @@ for($i = 0; $i < count($consortium) / 6; $i++)
           <div class="consortium-items">
             <div class="row no-gutters">
               <?php foreach ($slide_items as $consortium): ?>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                   <div class="consortium-item flip-container">
                     <div class="flipper">
                       <div class="consortium-img-wrapper front">

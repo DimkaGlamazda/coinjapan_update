@@ -129,7 +129,7 @@ for($i = 0; $i < count($consortium) / 8; $i++)
 </div>
 </section>
 
-<section class="partners-page-partners">
+<section class="partners-page-partners" id="consortium">
   <div class="cj-container">
     <h2 class="section-header" data-css-animate="trigger"><?php pll_e('Consortium') ?></h2>
     <div class="row no-gutters" data-css-animate="trigger">

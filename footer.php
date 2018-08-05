@@ -86,9 +86,15 @@ $pages_Solutions = [
             </div>
         </div>
         <div class="row no-gutters footer-copyright">
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 footer-languages">
                 <?php foreach($languages as $key => $language_item): ?>
-                  <a href="<?=$language_item['url']?>"><span><?=$language_item['slug']?></span></a>
+                    <?php $class = ''; 
+                    if($current_lang == $key):
+                         ?><span class="footer-lang-active"><?=$key?></span><?php
+                         continue;
+                     endif;  
+                    ?>
+                  <a class="<?=$class?>" href="<?=$language_item['url']?>"><span><?=$key?></span></a>
                 <?php endforeach; ?>  
             </div>
             <div class="col-12 col-md-4 text-center">

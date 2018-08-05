@@ -135,8 +135,7 @@ endwhile;
               </div>
               <div class="latest-news-content">
                 <h4 class="latest-news-header"><?=$latest_news['title']?></h4>
-                <?=$latest_news['summary']?>
-                <div class="news-item-footer">
+                 <div class="news-item-footer">
                   <span class="news-item-footer-date"><?=$latest_news['date']?></span>
                   <div class="news-item-categories-list">
                     <?php foreach ($latest_news['categories'] as $category): ?>
@@ -147,6 +146,7 @@ endwhile;
                     <?php endforeach; ?>
                   </div>
                 </div>
+                <?=$latest_news['summary']?>
               </div>
             </a>
           </div>

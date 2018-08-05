@@ -110,26 +110,39 @@ get_header();
 
 <section class="position-detail">
 	<div class="cj-container">
-        <div class="row no-gutters">
-            <div class="col-12">
-                <h2 class="section-header" data-css-animate="trigger"><?=$current_news['title']?></h2>
-            </div>
-            <div class="col-12">
-                <div class="news-item-page">
-                    <span class="news-item-footer-date"><?=$current_news['date']?></span>
-                    <?php foreach ($current_news['categories'] as $category): ?>
-                      <a href="<?=$category['url']?>" class="news-item-footer-category" style="color:#<?=$category['color']?>;"><span class="news-item-footer-category-label" style="background: #<?=$category['color']?>"></span>   
-                        <?=$category['title']?>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </div>
-    <div class="news-item-page-news-container">
-        <div class="row no-gutters">
-            <div class="col-12 col-md-9">
+        <div class="news-item-page-news-container">
+            <div class="row no-gutters">
+                <div class="col-12 col-md-9">
+                    <h2 class="section-header" data-css-animate="trigger"><?=$current_news['title']?></h2>
+                    <div class="news-item-page">
+                        <span class="news-item-footer-date"><?=$current_news['date']?></span>
+                        <?php foreach ($current_news['categories'] as $category): ?>
+                          <a href="<?=$category['url']?>" class="news-item-footer-category" style="color:#<?=$category['color']?>;"><span class="news-item-footer-category-label" style="background: #<?=$category['color']?>"></span>   
+                            <?=$category['title']?>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
                 <div class="news-item-page-current-news-content">
                     <?=$current_news['content']?>
+
+                    <div class="news-item-bottom-links">
+                        <a href="<?=$current_news['fb_url']?>" class="cj-btn-fb" data-css-animate="trigger">
+                            <span class="btn-title">Share</span>
+                            <span class="btn-img"><img src="<?=CJ_MEDIA_ROOT?>/icons/facebook-active.png" alt="Facebook icon"></span>
+                        </a>
+                        <a href="<?=$current_news['twetter_url']?>" class="cj-btn-twitter" data-css-animate="trigger">
+                            <span class="btn-title">Tweet</span>
+                            <span class="btn-img"><img src="<?=CJ_MEDIA_ROOT?>/icons/twitter-active.png" alt="Tweeter icon"></span>
+                        </a>
+                        <a href="<?=$current_news['telegram_url']?>?>" class="cj-btn-telegram" data-css-animate="trigger">
+                            <span class="btn-title">Telegram</span>
+                            <span class="btn-img"><img src="<?=CJ_MEDIA_ROOT?>/icons/telegram-active.png" alt="Telegram icon"></span>
+                        </a>
+                        <a href="<?=get_permalink( get_page_by_path( 'news' ) )?>#categories_list" class="cj-btn-back" data-css-animate="trigger">
+                            <span class="btn-title">Back to list</span>
+                            <span class="btn-img">Back</span>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-3">
@@ -147,45 +160,26 @@ get_header();
                                   <div class="news-item-categories-list">
                                     <?php foreach ($piece_of_news['categories'] as $category): ?>
                                       <a href="<?=$category['url']?>" class="news-item-footer-category" style="color:#<?=$category['color']?>;">
-                                       <span class="news-item-footer-category-label"
-                                       style="background: #<?=$category['color']?>"></span>
-                                       <?=$category['title']?>
-                                   </a>
-                               <?php endforeach; ?>
-                           </div>
-                       </div>
-                   </div>
-               </a>
-           <?php endforeach; ?>
-       </div>
-   </div>
-</section>
+                                         <span class="news-item-footer-category-label"
+                                         style="background: #<?=$category['color']?>"></span>
+                                         <?=$category['title']?>
+                                     </a>
+                                 <?php endforeach; ?>
+                             </div>
+                         </div>
+                     </div>
+                 </a>
+             <?php endforeach; ?>
+         </div>
+     </div>
+ </section>
 
 
-<section class="single-end-link-container">
-    <div class="cj-container">
-        <div class="news-item-bottom-links">
-            <a href="<?=$current_news['fb_url']?>" class="cj-btn-fb" data-css-animate="trigger">
-                <span class="btn-title">Share</span>
-                <span class="btn-img"><img src="<?=CJ_MEDIA_ROOT?>/icons/facebook-active.png" alt="Facebook icon"></span>
-            </a>
-            <a href="<?=$current_news['twetter_url']?>" class="cj-btn-twitter" data-css-animate="trigger">
-                <span class="btn-title">Tweet</span>
-                <span class="btn-img"><img src="<?=CJ_MEDIA_ROOT?>/icons/twitter-active.png" alt="Tweeter icon"></span>
-            </a>
-            <a href="<?=$current_news['telegram_url']?>?>" class="cj-btn-telegram" data-css-animate="trigger">
-                <span class="btn-title">Telegram</span>
-                <span class="btn-img"><img src="<?=CJ_MEDIA_ROOT?>/icons/telegram-active.png" alt="Telegram icon"></span>
-            </a>
-            <a href="<?=get_permalink( get_page_by_path( 'news' ) )?>#categories_list" class="cj-btn-back" data-css-animate="trigger">
-                <span class="btn-title">Back to list</span>
-                <span class="btn-img">Back</span>
-            </a>
-        </div>
-    </div>
-</section>
+ <section class="single-end-link-container">
 
-<section class="bottom-links">
+ </section>
+
+ <section class="bottom-links">
     <div class="cj-container background-color-grey">
         <div class="bottom-links-container">
             <div class="link-item-wrapper" data-css-animate="trigger">

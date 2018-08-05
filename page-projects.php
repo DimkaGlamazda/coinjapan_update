@@ -143,7 +143,7 @@ while ($query_partners->have_posts())
             <div class="section-header" data-css-animate="trigger"><?php pll_e('Our Clients') ?></div>
             <div class="projects-clients-slider-wraper no-gutters row">
               <div class="col-1 arrow-img-container">
-                <img class="arrow-left-img" src="<?=CJ_MEDIA_ROOT?>/controls/left-arrow.png" alt="left arrow">
+                <img class="arrow-left-img" data-css-animate="trigger" src="<?=CJ_MEDIA_ROOT?>/controls/left-arrow.png" alt="left arrow">
               </div>
               <div class="col-10" data-css-animate="trigger">
                 <div class="owl-carousel owl-carousel-2">
@@ -159,7 +159,7 @@ while ($query_partners->have_posts())
                 </div>
               </div>
               <div class="col-1 arrow-img-container">
-                <img class="arrow-right-img" src="<?=CJ_MEDIA_ROOT?>/controls/right-arrow.png" alt="right arrow">
+                <img class="arrow-right-img" data-css-animate="trigger" src="<?=CJ_MEDIA_ROOT?>/controls/right-arrow.png" alt="right arrow">
               </div>
             </div>
             <div class="row no-gutters">

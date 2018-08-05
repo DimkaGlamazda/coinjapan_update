@@ -94,8 +94,6 @@ while ($news_data->have_posts()) :
 
   $categories_data = wp_get_object_terms($post->ID, 'categories');
 
-
-
   $news_item['categories'] = [];
   foreach ($categories_data as $category) {
     $news_item['categories'][] = [

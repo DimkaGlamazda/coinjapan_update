@@ -74,7 +74,6 @@ $home_page = $current_lang == 'en' ? 'home' : 'home-ru';
                 <nav class="header-navigation">
                     <?php cj_menu_customization() ?>
                 </nav>
-
                 <div class="header-lang-btn">
                     <div class="current-lang"><?php echo $current_lang?></div>
                     <div class="lang-icon"></div>

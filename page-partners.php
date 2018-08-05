@@ -106,7 +106,7 @@ for($i = 0; $i < count($consortium) / 8; $i++)
     <h2 class="section-header" data-css-animate="trigger"><?php pll_e('Partners') ?></h2>
     <div class="row no-gutters">
       <div class="col-1 arrow-img-container">
-        <img class="arrow-left-img" src="<?=CJ_MEDIA_ROOT?>/controls/left-arrow.png" alt="left arrow">
+        <img class="arrow-left-img" data-css-animate="trigger" src="<?=CJ_MEDIA_ROOT?>/controls/left-arrow.png" alt="left arrow">
       </div>
       <div class="col-10">
         <div class="owl-carousel partners-list-wrapper" data-css-animate="trigger">
@@ -123,7 +123,7 @@ for($i = 0; $i < count($consortium) / 8; $i++)
       </div>
     </div>
     <div class="col-1 arrow-img-container">
-      <img class="arrow-right-img" src="<?=CJ_MEDIA_ROOT?>/controls/right-arrow.png" alt="right arrow">
+      <img class="arrow-right-img" data-css-animate="trigger" src="<?=CJ_MEDIA_ROOT?>/controls/right-arrow.png" alt="right arrow">
     </div>
   </div>
 </div>

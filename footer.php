@@ -8,32 +8,91 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  */
+
+$languages = pll_the_languages(['raw' => 1]);
+
+$current_lang = 'en';
+
+foreach ($languages as $key => $language){
+    if($language['current_lang']){
+      $current_lang = $key;
+  }
+}
+
+$home_page = $current_lang == 'en' ? 'home' : 'home-ru';
+
+
+$pages_CoinJapan = [
+    pll__('About') => $current_lang == 'en' ? 'about' : 'about-ru',
+    pll__('Contacts') =>  $current_lang == 'en' ? 'contacts' : 'contacts-ru',
+    pll__('Careers') => $current_lang == 'en' ? 'careers' : 'careers-ru',
+    pll__('News') => $current_lang == 'en' ? 'news' : 'news-ru'
+];
+
+$pages_Solutions = [
+    pll__('Services') => $current_lang == 'en' ? 'services' : 'services-ru',
+    pll__('Projects') => $current_lang == 'en' ? 'projects' : 'projects-ru',
+    pll__('Partners') => $current_lang == 'en' ? 'partners' : 'partners-ru'
+];
 ?>
 
 <footer class="footer">
     <div class="footer-container">
-        <div class="row">
-            <div class="col-12">
-                <span class="footer-connect-us">Connect with us</span>
+        <div class="row no-gutters footer-content">
+            <div class="col-6 col-md-2">
+                <h3><?=pll_e('CoinJapan')?></h3>
+                <ul>
+                    <?php foreach ($pages_CoinJapan as $title => $slug): ?>
+                        <li><a href="<?=get_permalink(get_page_by_path($slug))?>"><?=$title?></a></li>
+                    <?php endforeach;?>
+                </ul>
+            </div>
+            <div class=" col-6 col-md-2">
+                <h3><?=pll_e('Solutions')?></h3>
+                <ul>
+                    <?php foreach ($pages_Solutions as $title => $slug): ?>
+                        <li><a href="<?=get_permalink(get_page_by_path($slug))?>"><?=$title?></a></li>
+                    <?php endforeach;?>
+                </ul>
+            </div>
+            <div class="col-6 col-md-2 footer-social">
+                <h3><?=pll_e('Social')?></h3>
+                <div class="row no-gutters">
+                    <div class="col-3">
+                        <a href="//www.facebook.com/CoinJapan/" class="fb-icon"></a>
+                    </div>
+                    <div class="col-3">
+                        <a href="//www.linkedin.com/in/coinjapan" class="linked-in-icon"></a>
+                    </div>
+                    <div class="col-3">
+                        <a href="//twitter.com/CoinJapanNews" class="twitter-icon"></a>
+                    </div>
+                    <div class="col-3">
+                        <a href="//t.me/coinjapan" class="telegram-icon"></a>
+                    </div>
+                    <div class="col-3">
+                        <a href="//youtube.com/coinjapan" class="youtube-icon"></a>
+                    </div>
+                    <div class="col-3">
+                        <a href="//medium.com/@coinjapan" class="medium-icon"></a>
+                    </div>
+                    <div class="col-3">
+                        <a href="//www.reddit.com/user/coinjapanofficial/" class="reddit-icon"></a>
+                    </div>
+                    <div class="col-3">
+                        <a href="//www.quora.com/profile/%D0%A1oin-Japan" class="quora-icon"></a>
+                    </div>
+                </div>   
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="social-links">
-                    <a href="//www.facebook.com/CoinJapan/" class="fb-icon"></a>
-                    <a href="//www.linkedin.com/in/coinjapan" class="linked-in-icon"></a>
-                    <a href="//twitter.com/CoinJapanNews" class="twitter-icon"></a>
-                    <a href="//t.me/coinjapan" class="telegram-icon"></a>
-                    <a href="//youtube.com/coinjapan" class="youtube-icon"></a>
-                    <a href="//medium.com/@coinjapan" class="medium-icon"></a>
-                    <a href="//www.reddit.com/user/coinjapanofficial/" class="reddit-icon"></a>
-                    <a href="//www.quora.com/profile/%D0%A1oin-Japan" class="quora-icon"></a>
-                </div>
+        <div class="row no-gutters footer-copyright">
+            <div class="col-12 col-md-4">
+                <?php foreach($languages as $key => $language_item): ?>
+                  <a href="<?=$language_item['url']?>"><span><?=$language_item['slug']?></span></a>
+                <?php endforeach; ?>  
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="copyright">© 2018 CoinJapan</div>
+            <div class="col-12 col-md-4 text-center">
+                <div class="copyright"><?php pll_e('© 2018 CoinJapan All Rights Reserved')?></div>
             </div>
         </div>
         <div class="footer-go-to-top" data-go-to-top="btn">
@@ -41,6 +100,8 @@
         </div>
     </div>
 </footer>
+
+
 <div id="preloader"></div>
 
 <?php wp_footer(); ?>

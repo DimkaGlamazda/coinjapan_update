@@ -60,12 +60,20 @@ function coin_japan_scripts()
   //custom scripts
   wp_enqueue_script('cj-scripts', CJ_SCRIPTS_ROOT . '/main.js');
 
+
+  wp_localize_script( 'cj-scripts', 'myajax', 
+    array(
+      'url' => admin_url('admin-ajax.php')
+    )
+  );  
 }
 
-add_image_size('sml_size', 300);
-add_image_size('mid_size', 600);
-add_image_size('lrg_size', 1200);
-add_image_size('sup_size', 2400);
+
+
+
+
+
+
 
 
 /**
@@ -75,6 +83,9 @@ add_image_size('sup_size', 2400);
  */
 
 add_action('wp_enqueue_scripts', 'coin_japan_scripts');
+
+
+
 
 
 function cj_menu_customization()
@@ -787,3 +798,5 @@ add_action('init', function () {
 });
 
 
+
+include 'ajax/news-ajax.php';

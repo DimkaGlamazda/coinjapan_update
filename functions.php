@@ -411,15 +411,14 @@ function staff_post_type()
     , 'menu_icon' => 'dashicons-groups'
     , 'hierarchical' => false
     , 'supports' => [
-      'title', 'editor', 'thumbnail'
+      'title', 'editor', 'thumbnail', 'page-attributes'
     ]
     , 'menu_position' => 5
     , 'exclude_from_search' => true
-
   ];
 
   add_theme_support('post-thumbnails');
-  add_post_type_support( 'staff', 'thumbnail' ); 
+  add_post_type_support( 'staff', 'thumbnail');
 
   register_post_type('staff', $args);
 }

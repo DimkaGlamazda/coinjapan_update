@@ -41,7 +41,7 @@ while ( $db_query->have_posts() )
 
     $current_news['fb_url'] = '//www.facebook.com/sharer.php?u='. get_permalink();
     $current_news['twetter_url'] = '//twitter.com/share?url='. get_permalink();
-    $current_news['telegram_url'] = '#';
+    $current_news['telegram_url'] = '//t.me/coinjapan';
 
     
 }

@@ -64,7 +64,7 @@ foreach ($terms as $term) {
 
 $args = [
   'post_type' => 'news_item'
-  , 'posts_per_page' => 2
+  , 'posts_per_page' => -1
 ];
 
 
@@ -82,6 +82,45 @@ if ($slug) {
 
   echo '<input type="hidden" data-news-ajax="currentCategory" value="'.$slug.'">';
 
+}
+
+
+$count_data = new WP_Query($args);
+
+$count = count( $count_data->posts );
+
+$limit = 9;
+
+$canMore = true;
+
+$news_data = new WP_Query($args);
+
+if($count <= $limit)
+{
+  $canMore = false;
+}
+
+
+$args = [
+    'post_type' => 'news_item',
+    'posts_per_page' => $limit,
+    'offset' => 0
+];
+
+$slug = $_POST['category'];
+
+if ($slug) {
+  $args = array(
+      'post_type' => 'news_item',
+      'posts_per_page' => $limit,
+      'offset' => 0,
+      'tax_query' => [
+          [
+              'taxonomy' => 'categories',
+              'field' => 'slug',
+              'terms' => $slug
+          ]
+      ]);
 }
 
 $news_data = new WP_Query($args);
@@ -131,7 +170,7 @@ endwhile;
   <div class="cj-container">
     <div class="news-container">
       <div class="row no-gutters">
-        <div data-news-ajax="item" class="col-12">
+        <div data-news-ajax="item" data-css-animate="trigger" class="col-12">
           <a class="news-list-link-wrapper" href="<?=$latest_news['link']?>">
             <div class="latest-news-img-wrapper">
               <img src="<?=$latest_news['thumbnail']?>" alt="<?=$latest_news['title']?>">
@@ -155,7 +194,7 @@ endwhile;
         </div>
       </div>
       <div class="news-list-other-news">
-        <div class="row no-gutters" data-news-ajax="container">
+        <div class="row no-gutters" data-css-animate="trigger" data-news-ajax="container">
           <?php foreach ($news as $piece_of_news): ?>
             <div data-news-ajax="item" class="col-12 col-sm-6 col-md-6 col-lg-3">
               <a class="news-list-link-wrapper" href="<?=$piece_of_news['link']?>">
@@ -184,9 +223,11 @@ endwhile;
        </div>
      </div>
    </div>
- </div>
- <div class="cj-btn-container">
-  <a href="#" class="cj-btn" data-news-ajax="trigger" data-css-animate="trigger"><span><?php pll_e('More') ?></span></a>
+    <?php if($canMore): ?>
+      <div class="cj-btn-container">
+        <a href="#" class="cj-btn" data-news-ajax="trigger" data-css-animate="trigger"><span><?php pll_e('More') ?></span></a>
+      </div>
+    <?php endif; ?>
  </div>
 </section>
 

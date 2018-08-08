@@ -56,7 +56,7 @@
             $args = array(
                  'post_type' => 'staff',
                  'posts_per_page' => -1,
-                 'orderby' => 'date',
+                 'orderby' => 'menu_order',
                  'order'   => 'ASC',
                  'suppress_filters' => true,
              );

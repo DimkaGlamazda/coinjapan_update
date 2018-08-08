@@ -71,8 +71,50 @@ $args = [
 if ($slug) {
   $args = array(
       'post_type' => 'news_item'
-  , 'posts_per_page' => -1
+  , 'posts_per_page' => 2
   , 'tax_query' => [
+          [
+              'taxonomy' => 'categories',
+              'field' => 'slug',
+              'terms' => $slug
+          ]
+      ]);
+
+  echo '<input type="hidden" data-news-ajax="currentCategory" value="'.$slug.'">';
+
+}
+
+
+$count_data = new WP_Query($args);
+
+$count = count( $count_data->posts );
+
+$limit = 9;
+
+$canMore = true;
+
+$news_data = new WP_Query($args);
+
+if($count <= $limit)
+{
+  $canMore = false;
+}
+
+
+$args = [
+    'post_type' => 'news_item',
+    'posts_per_page' => $limit,
+    'offset' => 0
+];
+
+$slug = $_POST['category'];
+
+if ($slug) {
+  $args = array(
+      'post_type' => 'news_item',
+      'posts_per_page' => $limit,
+      'offset' => 0,
+      'tax_query' => [
           [
               'taxonomy' => 'categories',
               'field' => 'slug',
@@ -128,14 +170,13 @@ endwhile;
     <div class="cj-container">
       <div class="news-container">
         <div class="row no-gutters">
-          <div class="col-12">
+          <div data-news-ajax="item" data-css-animate="trigger" class="col-12">
             <a class="news-list-link-wrapper" href="<?=$latest_news['link']?>">
               <div class="latest-news-img-wrapper">
                 <img src="<?=$latest_news['thumbnail']?>" alt="<?=$latest_news['title']?>">
               </div>
               <div class="latest-news-content">
                 <h4 class="latest-news-header"><?=$latest_news['title']?></h4>
-                <?=$latest_news['summary']?>
                 <div class="news-item-footer">
                   <span class="news-item-footer-date"><?=$latest_news['date']?></span>
                   <div class="news-item-categories-list">
@@ -147,14 +188,15 @@ endwhile;
                     <?php endforeach; ?>
                   </div>
                 </div>
+                <?=$latest_news['summary']?>
               </div>
             </a>
           </div>
         </div>
         <div class="news-list-other-news">
-          <div class="row no-gutters">
+          <div class="row no-gutters" data-css-animate="trigger" data-news-ajax="container">
             <?php foreach ($news as $piece_of_news): ?>
-              <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+              <div data-news-ajax="item" class="col-12 col-sm-6 col-md-6 col-lg-3">
                 <a class="news-list-link-wrapper" href="<?=$piece_of_news['link']?>">
                   <div class="news-item-list-img">
                     <img src="<?=$piece_of_news['thumbnail']?>" alt="<?=$piece_of_news['title']?>">
@@ -167,8 +209,8 @@ endwhile;
                         <?php foreach ($piece_of_news['categories'] as $category): ?>
                           <a href="<?=$category['url']?>" class="news-item-footer-category"
                              style="color:#<?=$category['color']?>;">
-                          <span class="news-item-footer-category-label"
-                                style="background: #<?=$category['color']?>"></span>
+                         <span class="news-item-footer-category-label"
+                               style="background: #<?=$category['color']?>"></span>
                             <?=$category['title']?>
                           </a>
                         <?php endforeach; ?>
@@ -181,8 +223,14 @@ endwhile;
           </div>
         </div>
       </div>
+      <?php if($canMore): ?>
+        <div class="cj-btn-container">
+          <a href="#" class="cj-btn" data-news-ajax="trigger" data-css-animate="trigger"><span><?php pll_e('More') ?></span></a>
+        </div>
+      <?php endif; ?>
     </div>
   </section>
+
 
 
 <?php

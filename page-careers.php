@@ -9,7 +9,7 @@ get_header();
       <div class="cj-container">
         <h1><?php pll_e('Careers') ?></h1>
         <ul class="breadcrumbs">
-          <li><a href="<?=get_permalink(get_page_by_path('home'))?>"><?php pll_e('Home') ?></a></li>
+          <li><a href="<?=get_permalink(get_page_by_path(get_link_to_page('home')))?>"><?php pll_e('Home') ?></a></li>
           <li><a href="#"><?php pll_e('Careers') ?></a></li>
         </ul>
       </div>
@@ -43,6 +43,10 @@ get_header();
                   <img class="d-block img-fluid" src="<?=CJ_MEDIA_ROOT?>/images/slider/slider-careers/careers3.jpg"
                        alt="Third slide">
                 </div>
+                <div class="carousel-item">
+                  <img class="d-block img-fluid" src="<?=CJ_MEDIA_ROOT?>/images/slider/slider-careers/careers4.jpg"
+                       alt="Third slide">
+                </div>                
               </div>
               <div class="slide-controls-box">
                 <a class="about-us-slider-prev" href="#mainSlider" role="button" data-slide="prev">
@@ -135,10 +139,21 @@ wp_reset_postdata();
 
   <section class="career-page-culture">
     <div class="cj-container">
-      <h2 class="section-header" data-css-animate="trigger"><?php pll_e('Our culture')?></h2>
-      <article class="culture-description-wrapper" data-css-animate="trigger">
-        <p><?php pll_e('careers_section4_description')?></p>
-      </article>
+        <h2 class="page-main-heading"><?php pll_e('Our culture')?></h2>
+
+        <div class="row no-gutters">
+            <div class="col-12">
+                <article class="about-description-main-text">
+                    <p><?php pll_e('careers_section4_description') ?></p>
+                </article>
+            </div>
+        </div>
+
+        <div class="row no-gutters">
+            <div class="col-md-6 offset-md-3">
+                <img src="<?=CJ_MEDIA_ROOT?>/images/pages/content/careers.jpg" alt="Meeting">
+            </div>
+        </div>
     </div>
   </section>
 

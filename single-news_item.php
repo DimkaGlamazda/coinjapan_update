@@ -41,7 +41,7 @@ while ( $db_query->have_posts() )
 
     $current_news['fb_url'] = '//www.facebook.com/sharer.php?u='. get_permalink();
     $current_news['twetter_url'] = '//twitter.com/share?url='. get_permalink();
-    $current_news['telegram_url'] = '#';
+    $current_news['telegram_url'] = '//t.me/coinjapan';
 
     
 }
@@ -99,8 +99,8 @@ get_header();
         <div class="cj-container">
             <h1>News</h1>
             <ul class="breadcrumbs">
-                <li><a href="<?=get_permalink( get_page_by_path( 'home' ) )?>"><?php pll_e('Home')?></a></li>
-                <li><a href="<?=get_permalink( get_page_by_path( 'news' ) )?>"><?php pll_e('News')?></a></li>
+                <li><a href="<?=get_permalink( get_page_by_path( get_link_to_page('home') ) )?>"><?php pll_e('Home')?></a></li>
+                <li><a href="<?=get_permalink( get_page_by_path( get_link_to_page('news') ) )?>"><?php pll_e('News')?></a></li>
                 <li><a href="#" class="last-breadcrumb"><?php the_title() ?></a></li>
             </ul>
         </div>
@@ -183,13 +183,13 @@ get_header();
     <div class="cj-container background-color-grey">
         <div class="bottom-links-container">
             <div class="link-item-wrapper" data-css-animate="trigger">
-                <a href="<?=get_permalink( get_page_by_path( 'services' ) )?>">
+                <a href="<?=get_permalink( get_page_by_path( get_link_to_page('services') ) )?>">
                     <img src="<?=CJ_MEDIA_ROOT?>/images/pages/content/link-services.jpg" alt="A lamp">
                     <span>Services</span>
                 </a>
             </div>
             <div class="link-item-wrapper" data-css-animate="trigger">
-                <a href="<?=get_permalink( get_page_by_path( 'projects' ) )?>">
+                <a href="<?=get_permalink( get_page_by_path( get_link_to_page('projects') ) )?>">
                     <img src="<?=CJ_MEDIA_ROOT?>/images/pages/content/link-project.jpg" alt="Toy">
                     <span>Projects</span>
                 </a>

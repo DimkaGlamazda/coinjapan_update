@@ -87,24 +87,41 @@ $pages_Solutions = [
         </div>
         <div class="row no-gutters footer-copyright">
             <div class="col-12 col-md-4 footer-languages">
-                <?php foreach($languages as $key => $language_item): ?>
-                    <?php $class = ''; 
-                    if($current_lang == $key):
-                         ?><span class="footer-lang-active"><?=$key?></span><?php
-                         continue;
-                     endif;  
-                    ?>
-                  <a class="<?=$class?>" href="<?=$language_item['url']?>"><span><?=$key?></span></a>
-                <?php endforeach; ?>  
-            </div>
-            <div class="col-12 col-md-4 text-center">
-                <div class="copyright"><?php pll_e('© 2018 CoinJapan All Rights Reserved')?></div>
-            </div>
-        </div>
-        <div class="footer-go-to-top" data-go-to-top="btn">
-            <img src="<?=CJ_MEDIA_ROOT?>/controls/arrow-to-top.png" alt="go to top">
+
+                <?php 
+                
+                $lanf_urls = [];
+
+                foreach($languages as $key => $language_item) {
+                    $lanf_urls[$key] = $language_item['url'];
+                }
+
+                $i = 0;
+
+
+                foreach($lanf_urls as $slug => $url): 
+
+                    if($i != 0 && $i < count($lanf_urls))
+                    {
+                        echo '<span class="lang-devider"></span>';
+                    }
+                    $i++;
+                    if($current_lang == $slug):
+                     ?><span class="footer-lang-active"><?=$slug?></span><?php
+                     continue;
+                 endif;  
+                 ?>
+                 <a href="<?=$url?>"><span><?=$slug?></span></a>
+             <?php endforeach; ?>  
+         </div>
+         <div class="col-12 col-md-4 text-center">
+            <div class="copyright"><?php pll_e('© 2018 CoinJapan All Rights Reserved')?></div>
         </div>
     </div>
+    <div class="footer-go-to-top" data-go-to-top="btn">
+        <img src="<?=CJ_MEDIA_ROOT?>/controls/arrow-to-top.png" alt="go to top">
+    </div>
+</div>
 </footer>
 
 

@@ -1,3 +1,25 @@
+
+
+function consortiumItemsContinerSetPadding()
+{
+    clearTimeout(window.resizedFinished);
+    window.resizedFinished = setTimeout(function(){
+        var consortium_container = jQuery('.consortium-items');
+
+        var width = consortium_container.parent().width();
+
+
+        var childWidth = jQuery('.consortium-item').width();
+
+
+        var left = width % (childWidth + 10);
+
+        consortium_container.css({
+            'padding-left' : left / 2
+        });
+    }, 250);
+}
+
 var is_firstview = true;
 var mouse = {x: 0, y: 0, z: 0};
 
@@ -41,9 +63,11 @@ if (windowWidth < 680) {
 }
 
 
-function ajastImgPosition() {
+function ajastImgPosition() 
+{
     var container = jQuery('[data-fix-img-position="img-container"]');
     var img = container.find('img');
+
 
     if (is_mobile_width && container.width() < img.width()) {
         img.css('left', ((container.width() - img.width()) / 2) + 'px');
@@ -53,6 +77,8 @@ function ajastImgPosition() {
 
 jQuery(window).resize(function () {
 
+    consortiumItemsContinerSetPadding();
+    ajastImgPosition();    
 
     var beforeWidth = windowWidth;
 
@@ -82,8 +108,11 @@ jQuery(window).resize(function () {
     }
 
     Particles.onResize();
+
     goToTop.onResize();
-    ajastImgPosition();
+
+    
+
 
 });
 
@@ -103,6 +132,7 @@ jQuery(function () {
     auto_increment.init();
 
     ajastImgPosition();
+    consortiumItemsContinerSetPadding();
 
     // $(block_animation.triggerContainer).addClass('hidden');
 
@@ -707,7 +737,7 @@ var goToTop = {
         jQuery(document).on('click', this.trigger, this.go);
         jQuery(document).on('click', this.triggerDown, this.goDown);
 
-        jQuery(window).on('scroll', this.onScroll);
+        // jQuery(window).on('scroll', this.onScroll);
 
         goToTop.onResize();
     },
@@ -1170,6 +1200,95 @@ var Particles = {
         ;
     }
 };
+
+
+jQuery(function() {
+
+    const nodes = [].slice.call(document.querySelectorAll('.animate-container'), 0);
+    const directions  = { 0: 'top', 1: 'right', 2: 'bottom', 3: 'left' };
+    const classNames = ['in', 'out'].map((p) => Object.values(directions).map((d) => `${p}-${d}`)).reduce((a, b) => a.concat(b));
+
+    const getDirectionKey = (ev, node) => 
+    {
+      const { width, height, top, left } = node.getBoundingClientRect();
+
+      const l = ev.pageX - (left + window.pageXOffset);
+      const t = ev.pageY - (top + window.pageYOffset);
+      const x = (l - (width/2) * (width > height ? (height/width) : 1));
+      const y = (t - (height/2) * (height > width ? (width/height) : 1));
+
+      return Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
+  }
+
+  class Item 
+  {
+    constructor(element) 
+    {
+
+        this.element = element;
+
+
+
+        if(is_mobile_width || is_pad_width)
+        {
+            var self = this;
+            window.onscroll = function() { 
+
+                var topOffset = self.element.offsetTop;
+
+                var positionInfo = self.element.getBoundingClientRect();
+
+                var truggerLine = topOffset + (positionInfo.height / 2) + 50;
+
+
+                console.log(changeTriggerBorderbottom);
+
+                var addClassBottom = window.scrollY > changeTriggerBorderbottom;
+
+                if (truggerLine < window.scrollY) 
+                {
+                    console.log(1);
+                } 
+
+                if(addClassBottom) 
+                {
+                    console.log(2);
+                }
+            };
+        }
+        else
+        {
+            this.element.addEventListener('mouseover', (ev) => this.update(ev, 'in'));
+            this.element.addEventListener('mouseout', (ev) => this.update(ev, 'out'));
+        }
+
+    }
+
+    update(ev, prefix) 
+    {
+
+        this.element.classList.remove(...classNames);
+        this.element.classList.add(`${prefix}-${directions[getDirectionKey(ev, this.element)]}`);
+    }
+
+    smallScreen(ev, prefix, directions)
+    {
+        this.element.classList.remove(...classNames);
+        this.element.classList.add(`${prefix}-${directions}`);
+    }
+
+    scrollHandler()
+    {
+
+    }
+}
+
+function hasClass( target, className ) {
+    return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+}
+
+nodes.forEach(node => new Item(node));
+});
 
 
 

@@ -20,8 +20,8 @@ get_header();
         <div class="cj-container">
             <h1>Careers</h1>
             <ul class="breadcrumbs">
-                <li><a href="<?=get_permalink( get_page_by_path( 'home' ) )?>"><?php pll_e('Home')?></a></li>
-                <li><a href="<?=get_permalink( get_page_by_path( 'careers' ) )?>"><?php pll_e('Careers')?></a></li>
+                <li><a href="<?=get_permalink( get_page_by_path( get_link_to_page('home') ) )?>"><?php pll_e('Home')?></a></li>
+                <li><a href="<?=get_permalink( get_page_by_path( get_link_to_page('careers') ) )?>"><?php pll_e('Careers')?></a></li>
                 <li><a href="#"><?php the_title() ?></a></li>
             </ul>
         </div>
@@ -66,7 +66,7 @@ get_header();
 <section class="single-end-link-container">
     <div class="cj-container">
         <div class="cj-btn-container">
-            <a href="<?=get_permalink( get_page_by_path( 'contacts' ) )?>#contact-form" class="cj-btn" data-css-animate="trigger"><span>Apply now</span></a>
+            <a href="<?=get_permalink( get_page_by_path( get_link_to_page('contacts') ) )?>#contact-form" class="cj-btn" data-css-animate="trigger"><span>Apply now</span></a>
         </div>
     </div>
 </section>

@@ -29,6 +29,9 @@ while ($query_partners->have_posts())
   $partner['thumbnail'] = get_the_post_thumbnail_url();
 
   $partners[] = $partner;
+
+
+  $achievements = get_option( 'achievements_options' );
 }
 ?>
 <?php get_header() ?>
@@ -62,8 +65,7 @@ while ($query_partners->have_posts())
         <h2 class="section-header" data-css-animate="trigger"><?php pll_e('We are CoinJapan') ?></h2>
         <p data-css-animate="trigger"><?php pll_e('description_we_are_coinjapan') ?></p>
         <div class="cj-btn-container">
-          <a href="<?=get_permalink(get_page_by_path('about'))?>" class="cj-btn"
-             data-css-animate="trigger"><span><?php pll_e('Read more') ?></span></a>
+          <a href="<?=get_permalink(get_page_by_path(get_link_to_page('about')))?>" class="cj-btn" data-css-animate="trigger"><span><?php pll_e('Read more') ?></span></a>
         </div>
       </div>
       <div class="about-us-slider">
@@ -79,6 +81,10 @@ while ($query_partners->have_posts())
             </div>
             <div class="carousel-item">
               <img class="d-block img-fluid" src="<?=CJ_MEDIA_ROOT?>/images/slider/slider-home/index3.jpg"
+                   alt="Third slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="<?=CJ_MEDIA_ROOT?>/images/slider/slider-home/index4.jpg"
                    alt="Third slide">
             </div>
           </div>
@@ -104,7 +110,8 @@ while ($query_partners->have_posts())
               <h3><?php pll_e('Collected funds') ?></h3>
               <p class="partners-number-medium">
                 $
-                <span data-projectsAutocount="field" data-from="267" data-to="400">400</span>
+                <span data-projectsAutocount="field" data-from="267" 
+                data-to="<?=$achievements['collected_funds']?>"><?=$achievements['collected_funds']?></span>
                 <span class="partner-number-description"><?php pll_e('Million') ?></span>
               </p>
             </div>
@@ -112,20 +119,20 @@ while ($query_partners->have_posts())
           <div class="col-sm-12 col-md-4">
             <div class="project-item project-item-middle">
               <h3><?php pll_e('Successful ICOs') ?></h3>
-              <p><span class="success-ico-color partners-number-medium" data-projectsAutocount="field"
-                       data-from="7" data-to="15">15</span></p>
+              <p><span class="success-ico-color partners-number-medium" 
+                data-projectsAutocount="field" data-from="7" data-to="<?=$achievements['successful_icos']?>"><?=$achievements['successful_icos']?></span></p>
             </div>
           </div>
           <div class="col-sm-12 col-md-4">
             <div class="project-item project-item-last">
               <h3><?php pll_e('Attracted investors') ?></h3>
-              <p class="partners-number-medium"><span data-projectsAutocount="field" data-from="2500"
-                                                      data-to="3100">3100</span><span>+</span></p>
+              <p class="partners-number-medium"><span data-projectsAutocount="field" 
+                data-from="2500" data-to="<?=$achievements['attracted_investors']?>"><?=$achievements['attracted_investors']?></span><span>+</span></p>
             </div>
           </div>
         </div>
         <div class="cj-btn-container">
-          <a href="<?=get_permalink(get_page_by_path('projects'))?>" class="cj-btn"
+          <a href="<?=get_permalink(get_page_by_path(get_link_to_page('projects')))?>" class="cj-btn"
              data-css-animate="trigger"><span><?php pll_e('Read more') ?></span></a>
         </div>
       </div>
@@ -171,7 +178,7 @@ if ($news->have_posts()) :
         <?php endwhile; ?>
       </div>
       <div class="cj-btn-container">
-        <a href="<?=get_permalink(get_page_by_path('news'))?>" class="cj-btn"
+        <a href="<?=get_permalink(get_page_by_path(get_link_to_page('news')))?>" class="cj-btn"
            data-css-animate="trigger"><span>Read more</span></a>
       </div>
     </div>

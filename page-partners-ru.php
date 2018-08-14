@@ -79,7 +79,7 @@ for($i = 0; $i < count($consortium) / 8; $i++)
     <div class="cj-container">
       <h1><?php pll_e('Partners') ?></h1>
       <ul class="breadcrumbs">
-        <li><a href="<?=get_permalink(get_page_by_path('home'))?>"><?php pll_e('Home') ?></a></li>
+        <li><a href="<?=get_permalink(get_page_by_path(get_link_to_page('home')))?>"><?php pll_e('Home') ?></a></li>
         <li><a href="#"><?php pll_e('Partners') ?></a></li>
       </ul>
     </div>
@@ -104,7 +104,7 @@ for($i = 0; $i < count($consortium) / 8; $i++)
 <section class="partners-page-partners">
   <div class="cj-container">
     <h2 class="section-header" data-css-animate="trigger"><?php pll_e('Partners') ?></h2>
-    <div class="row no-gutters">
+    <div class="row no-gutters partners-list-wrapper-container">
       <div class="col-1 arrow-img-container">
         <img class="arrow-left-img" data-css-animate="trigger" src="<?=CJ_MEDIA_ROOT?>/controls/left-arrow.png" alt="left arrow">
       </div>
@@ -129,7 +129,7 @@ for($i = 0; $i < count($consortium) / 8; $i++)
 </div>
 </section>
 
-<section class="partners-page-partners">
+<section class="partners-page-partners" id="consortium">
   <div class="cj-container">
     <h2 class="section-header" data-css-animate="trigger"><?php pll_e('Consortium') ?></h2>
     <div class="row no-gutters" data-css-animate="trigger">
@@ -147,41 +147,18 @@ for($i = 0; $i < count($consortium) / 8; $i++)
     <div class="owl-carousel consortium-carousel" data-css-animate="trigger">
       <?php foreach ($slides as $slide_items): ?>
         <div class="consortium-section">
-          <div class="consortium-overlay"></div>
-          <div class="consortium-grid">
-            <div class="row no-gutters">
-              <?php foreach ($slide_items as $consortium): ?>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                  <div class="consortium-border">
-                    <div class="consortium-item" style="visibility: hidden">
-                      <div class="consortium-img-wrapper">
-                        <img src="<?=$consortium['thumbnail']?>" alt="<?=$consortium['title']?>">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              <?php endforeach; ?>  
-            </div>
-          </div>
           <div class="consortium-items">
-            <div class="row no-gutters">
-              <?php foreach ($slide_items as $consortium): ?>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                  <div class="consortium-item flip-container">
-                    <div class="flipper">
-                      <div class="consortium-img-wrapper front">
-                        <img src="<?=$consortium['thumbnail']?>" alt="<?=$consortium['title']?>">
-                      </div>
-                      <div class="back">
-                        <h4 class="consortium-member-title"><?=$consortium['title']?></h4>
-                        <p class="consortium-member-description"><?=$consortium['description'] ?></p>
-                        <a class="consortium-member-reference" href="<?=$consortium['reference']?>"><?=$consortium['label']?></a>
-                      </div>
-                    </div>
-                  </div>
+            <?php foreach ($slide_items as $consortium): ?>
+              <div class="consortium-item animate-container">
+                <div class="info">
+                  <h4 class="consortium-member-title"><?=$consortium['title']?></h4>
+                  <p class="consortium-member-description"><?=$consortium['description'] ?></p>
                 </div>
-              <?php endforeach; ?>
-            </div>
+                <a href="<?=$consortium['reference']?>" class="consortium-img-wrapper normal">
+                  <img src="<?=$consortium['thumbnail']?>" alt="<?=$consortium['title']?>">
+                </a>
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
       <?php endforeach; ?>
@@ -206,7 +183,7 @@ for($i = 0; $i < count($consortium) / 8; $i++)
     </article>
 
     <div class="cj-btn-container">
-      <a href="<?=get_permalink(get_page_by_path('contacts'))?>#contact-form" class="cj-btn"
+      <a href="<?=get_permalink(get_page_by_path(get_link_to_page('contacts')))?>#contact-form" class="cj-btn"
        data-css-animate="trigger"><span><?php pll_e('Contact us') ?></span></a>
      </div>
    </div>

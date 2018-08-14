@@ -5,7 +5,7 @@
             <div class="cj-container">
                 <h1><?php pll_e('Contacts')?></h1>
                 <ul class="breadcrumbs">
-                    <li><a href="<?=get_permalink( get_page_by_path( 'home' ) )?>"><?php pll_e('Home')?></a></li>
+                    <li><a href="<?=get_permalink( get_page_by_path( get_link_to_page('home') ) )?>"><?php pll_e('Home')?></a></li>
                     <li><a href="#"><?php pll_e('Contacts')?></a></li>
                 </ul>
             </div>

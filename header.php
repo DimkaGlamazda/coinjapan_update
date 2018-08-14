@@ -90,8 +90,9 @@ $home_page = $current_lang == 'en' ? 'home' : 'home-ru';
 
 </header>
 
-<div class="cj-container">
+<!-- <div class="cj-container">
     <div class="go-to-top" data-go-to-top="btn">
         <img src="<?=CJ_MEDIA_ROOT?>/controls/arrow-to-top.png" alt="go to top">
     </div>
 </div>
+ -->

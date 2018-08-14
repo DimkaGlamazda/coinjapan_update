@@ -71,7 +71,7 @@ $args = [
 if ($slug) {
   $args = array(
       'post_type' => 'news_item'
-  , 'posts_per_page' => -1
+  , 'posts_per_page' => 2
   , 'tax_query' => [
           [
               'taxonomy' => 'categories',
@@ -100,6 +100,7 @@ if($count <= $limit)
   $canMore = false;
 }
 
+<<<<<<< HEAD
 $args = [
     'post_type' => 'news_item',
     'posts_per_page' => $limit,
@@ -112,12 +113,27 @@ $args = [
 
 if ($slug)
 {
+=======
+
+$args = [
+    'post_type' => 'news_item',
+    'posts_per_page' => $limit,
+    'offset' => 0
+];
+
+$slug = $_POST['category'];
+
+if ($slug) {
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
   $args = array(
       'post_type' => 'news_item',
       'posts_per_page' => $limit,
       'offset' => 0,
+<<<<<<< HEAD
       'orderby' => 'date',
       'order'   => 'DESC',
+=======
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
       'tax_query' => [
           [
               'taxonomy' => 'categories',
@@ -238,7 +254,10 @@ endwhile;
           <a href="#" class="cj-btn" data-news-ajax="trigger" data-css-animate="trigger"><span><?php pll_e('More') ?></span></a>
         </div>
       <?php endif; ?>
+<<<<<<< HEAD
       <br>
+=======
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
     </div>
   </section>
 

@@ -28,7 +28,11 @@ while ($query_partners->have_posts())
   $clients[] = $client;
 }
 
+<<<<<<< HEAD
 $achievements = get_option( 'achievements_options' );
+=======
+
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
 ?>
 <?php get_header() ?>
 
@@ -38,7 +42,11 @@ $achievements = get_option( 'achievements_options' );
       <div class="cj-container">
         <h1><?php pll_e('Projects') ?></h1>
         <ul class="breadcrumbs">
+<<<<<<< HEAD
           <li><a href="<?=get_permalink(get_page_by_path(get_link_to_page('home')))?>"><?php pll_e('Home') ?></a></li>
+=======
+          <li><a href="<?=get_permalink(get_page_by_path('home'))?>"><?php pll_e('Home') ?></a></li>
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
           <li><a href="#"><?php pll_e('Projects') ?></a></li>
         </ul>
       </div>
@@ -88,23 +96,36 @@ $achievements = get_option( 'achievements_options' );
           <div class="col-sm-12 col-md-4">
             <div class="project-item">
               <h3><?php pll_e('Performed Projects') ?></h3>
+<<<<<<< HEAD
               <p class="partners-number-medium">
                 <span data-projectsAutocount="field" data-from="1"
                                                       data-to="<?=$achievements['performed_projects']?>"><?=$achievements['performed_projects']?></span></p>
+=======
+              <p class="partners-number-medium"><span data-projectsAutocount="field" data-from="1"
+                                                      data-to="15">15</span></p>
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
             </div>
           </div>
           <div class="col-sm-12 col-md-4">
             <div class="project-item project-item-middle">
               <h3><?php pll_e('Successful ICOs') ?></h3>
               <p><span class="success-ico-color partners-number-medium" data-projectsAutocount="field" data-from="2"
+<<<<<<< HEAD
                        data-to="<?=$achievements['successful_icos']?>"><?=$achievements['successful_icos']?></span></p>
+=======
+                       data-to="15">15</span></p>
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
             </div>
           </div>
           <div class="col-sm-12 col-md-4">
             <div class="project-item">
               <h3><?php pll_e('Collected funds') ?></h3>
               <p class="partners-number-medium">$<span data-projectsAutocount="field" data-from="100"
+<<<<<<< HEAD
                                                        data-to="<?=$achievements['collected_funds']?>"><?=$achievements['collected_funds']?></span><span
+=======
+                                                       data-to="400">400</span><span
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
                         class="partner-number-description"><?php pll_e('Million') ?></span></p>
             </div>
           </div>
@@ -114,14 +135,22 @@ $achievements = get_option( 'achievements_options' );
             <div class="project-item ">
               <h3><?php pll_e('Attracted investors') ?></h3>
               <p class="partners-number-medium"><span data-projectsAutocount="field" data-from="400"
+<<<<<<< HEAD
                                                       data-to="<?=$achievements['attracted_investors']?>"><?=$achievements['attracted_investors']?></span>+</p>
+=======
+                                                      data-to="3100">3100</span>+</p>
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
             </div>
           </div>
           <div class="col-sm-12 col-md-4">
             <div class="project-item project-item-middle">
               <h3><?php pll_e('Average contribution of one investor') ?></h3>
               <p class="partners-number-medium">$<span data-projectsAutocount="field" data-from="267"
+<<<<<<< HEAD
                                                        data-to="<?=$achievements['average_contribution_of_one_investor']?>"><?=$achievements['average_contribution_of_one_investor']?></span><span
+=======
+                                                       data-to="129">129</span><span
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
                         class="partner-number-description"><?php pll_e('Thousand') ?></span></p>
             </div>
           </div>
@@ -129,7 +158,11 @@ $achievements = get_option( 'achievements_options' );
             <div class="project-item project-item-last">
               <h3><?php pll_e('Average time to launching ICO') ?></h3>
               <p class="partners-number-medium"><span data-projectsAutocount="field" data-from="1"
+<<<<<<< HEAD
                                                       data-to="<?=$achievements['average_time_to_launching_ico']?>"><?=$achievements['average_time_to_launching_ico']?>"</span><span
+=======
+                                                      data-to="3">3</span><span
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
                         class="partner-number-description"><?php pll_e('Month') ?></span></p>
             </div>
           </div>

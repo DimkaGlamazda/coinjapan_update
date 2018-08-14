@@ -4,7 +4,11 @@
     <div class="cj-container">
       <h1><?php pll_e('About') ?></h1>
       <ul class="breadcrumbs">
+<<<<<<< HEAD
         <li><a href="<?=get_permalink( get_page_by_path( get_link_to_page('home') ) )?>"><?php pll_e('Home') ?></a></li>
+=======
+        <li><a href="<?=get_permalink( get_page_by_path( 'home' ) )?>"><?php pll_e('Home') ?></a></li>
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
         <li><a href="#"><?php pll_e('About')?></a></li>
       </ul>
     </div>
@@ -93,13 +97,21 @@
   <div class="cj-container background-color-grey">
     <div class="bottom-links-container">
       <div class="link-item-wrapper" data-css-animate="trigger">
+<<<<<<< HEAD
         <a href="<?=get_permalink( get_page_by_path( get_link_to_page('services') ) )?>">
+=======
+        <a href="<?=get_permalink( get_page_by_path( 'services' ) )?>">
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
           <img src="<?=CJ_MEDIA_ROOT?>/images/pages/content/link-services.jpg" alt="A lamp">
           <span><?php pll_e('Services')?></span>
         </a>
       </div>
       <div class="link-item-wrapper" data-css-animate="trigger">
+<<<<<<< HEAD
         <a href="<?=get_permalink( get_page_by_path( get_link_to_page('projects') ) )?>">
+=======
+        <a href="<?=get_permalink( get_page_by_path( 'projects' ) )?>">
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
           <img src="<?=CJ_MEDIA_ROOT?>/images/pages/content/link-project.jpg" alt="Toy">
           <span><?php pll_e('Projects')?></span>
         </a>

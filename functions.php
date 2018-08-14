@@ -130,12 +130,63 @@ function get_link_to_page($page)
 $achievements_page = 'achievements.php';
 
 /*
+<<<<<<< HEAD
  * Функция, добавляющая страницу в пункт меню Настройки
  */
 // function true_options() {
 //   global $achievements_page;
 //   add_options_page( 'Параметры', 'Параметры', 'manage_options', $achievements_page, 'true_option_page');  
 // }
+=======
+*
+*
+*
+*
+*
+**/
+
+function staff_post_type()
+{
+  $labels = [
+    'name' => 'Staff'
+    , 'singular_name' => 'Staff'
+    , 'add_new' => 'New Member'
+    , 'all_items' => 'All Members'
+    , 'add_new_item' => 'New Member'
+    , 'edit_item' => 'Edit Member'
+    , 'new_item' => 'New Member'
+    , 'view_item' => 'View Member'
+    , 'search_item' => 'Search Members'
+    , 'not_found' => 'No Members Found'
+    , 'not_found_in_trash' => 'No Members found in trash'
+    , 'parent_item_column' => 'Parent Item'
+  ];
+
+  $args = [
+    'labels' => $labels
+    , 'public' => true
+    , 'has_archive' => true
+    , 'publicly_queryable' => true
+    , 'query_var' => true
+    , 'rewrite' => true
+    , 'capability_type' => 'post'
+    , 'menu_icon' => 'dashicons-groups'
+    , 'hierarchical' => false
+    , 'supports' => [
+      'title', 'editor', 'thumbnail', 'page-attributes'
+    ]
+    , 'menu_position' => 5
+    , 'exclude_from_search' => true
+  ];
+
+  add_theme_support('post-thumbnails');
+  add_post_type_support( 'staff', 'thumbnail');
+
+  register_post_type('staff', $args);
+}
+
+add_action('init', 'staff_post_type');
+>>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
 
 // add_action('admin_menu', 'true_options');
 

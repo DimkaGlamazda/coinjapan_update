@@ -13,7 +13,6 @@ function news_javascript()
               evt.preventDefault();
 
               var elem = $(this);
-<<<<<<< HEAD
 
               var container = $('[data-news-ajax="container"]');
 
@@ -55,41 +54,6 @@ function news_javascript()
               });
 
 
-=======
-
-              var container = $('[data-news-ajax="container"]');
-
-              var data = {
-                  action: 'news',
-                  countItems: $('[data-news-ajax="item"]').length,
-                  category: $('[data-news-ajax="currentCategory"]').val()
-              };
-
-              $.ajax({
-                  method: "POST",
-                  url: myajax.url,
-                  data: data,
-                  async : false,
-                  success : function (data) {
-                      var response = JSON.parse(data);
-
-                      if (response.status === 'error') {
-                          console.log(response.error);
-                      }
-                      else
-                      {
-                          container.append(response.content);
-
-                          if (!response.canMore) {
-                              $('[data-news-ajax="trigger"]').css('display', 'none');
-                          }
-
-                      }
-                  }
-              });
-
-
->>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
           });
       });
 
@@ -188,31 +152,22 @@ function news_callback()
 
       $news_item['date'] = get_the_date('Y/n/j');
       $news_item['thumbnail'] = get_the_post_thumbnail_url();
-<<<<<<< HEAD
 
       if(! $news_item['thumbnail'])
       {
         $news_item['thumbnail'] = get_template_directory_uri() . '/media/logo/default-news.png';
       }
 
-=======
->>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
       $news_item['title'] = get_the_title();
       $news_item['link'] = get_permalink();
 
       $news[] = $news_item;
     endwhile;
 
-<<<<<<< HEAD
     $items = [];
 
     foreach ($news as $piece_of_news):
       $html = '';
-=======
-    $html = '';
-
-    foreach ($news as $piece_of_news):
->>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
 
       $html .= '<div data-news-ajax="item" class="col-12 col-sm-6 col-md-6 col-lg-3 visible animated fadeInUp">';
       $html .= '<a class="news-list-link-wrapper" href="' . $piece_of_news['link'] . '">';
@@ -235,21 +190,14 @@ function news_callback()
       $html .= '</div>';
       $html .= '</a>';
       $html .= '</div>';
-<<<<<<< HEAD
 
       $items[] = $html;
-=======
->>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
     endforeach;
 
     $response = [
         'status' => 'success',
         'canMore' => $canMore,
-<<<<<<< HEAD
         'content' => $items
-=======
-        'content' => $html
->>>>>>> 595d2b78b5e77b3deceeb9e4b57f001b8277784f
     ];
 
 
